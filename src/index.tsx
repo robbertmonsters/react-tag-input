@@ -9,12 +9,12 @@ export interface ReactTagInputProps {
   onChange: (tags: Tags) => void;
   placeholder?: string;
   maxTags?: number;
-  validator?: (val: string) => boolean;
+  validator?: (val: string) => Promise<boolean>;
   editable?: boolean;
   readOnly?: boolean;
   removeOnBackspace?: boolean;
   addOnBlur?: boolean
-  delimiters?: [number]
+  delimiters?: number[]
 }
 
 interface State {
@@ -77,7 +77,7 @@ export default class ReactTagInput extends React.Component<ReactTagInputProps, S
     const { validator, addOnBlur } = this.props
 
     if (addOnBlur) {
-      
+
       // If input is blank, do nothing
       if (input === "") { return; }
 

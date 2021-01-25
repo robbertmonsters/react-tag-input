@@ -8,7 +8,7 @@ interface Props {
   inputRef: React.RefObject<HTMLInputElement>;
   change: (value: string) => void;
   remove: () => void;
-  validator?: (value: string) => boolean;
+  validator?: (value: string) => Promise<boolean>;
   removeOnBackspace?: boolean;
 }
 

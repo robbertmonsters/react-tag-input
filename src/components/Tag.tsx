@@ -10,7 +10,7 @@ interface Props {
   inputRef: React.RefObject<HTMLInputElement>;
   update: (i: number, value: string) => void;
   remove: (i: number) => void;
-  validator?: (val: string) => boolean;
+  validator?: (val: string) => Promise<boolean>;
   removeOnBackspace?: boolean;
 }
 
